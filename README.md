@@ -1,72 +1,108 @@
-# react-typing-indicator
 
-# Getting Started with Create React App
+# React tutorial for typing indicators
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+React Chat UI Kit is a collection of custom UI Components and UI Screens designed to build chat application with fully customizable UI. It is designed to avoid boilerplate code for building UI. 
+In this tutorial, you will find the steps you need to take before adding chat with typing indicators functionality to your react project.
 
-In the project directory, you can run:
 
-### `npm start`
+## Before getting started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This section shows you the prerequisites you need for integrating CometChat for your react app.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Requirements
+ 1. [CometChat Account](#cometchat-account)
 
-### `npm test`
+    ### CometChat Account
+    To use this library, you need application keys from your CometChat account. If you don't have an account, you can create one <a href="https://app.cometchat.com/" target="_blank">here</a>.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    1. Sign in to your <a href="https://app.cometchat.io/" target="_blank">CometChat Dashboard</a>
+    2. Click **Add New App**
+    3. Give your app a name, and select a region and click  Add App
+    4. Click your new app to open its settings.
+    5. Locate API Keys and Create Auth Key. You'll need `App ID`, `Auth Key` and `Region`
 
-### `npm run build`
+ 2. React application setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Install CometChat SDK
 
-### `npm run eject`
+```javascript
+    npm install @cometchat-pro/chat@2.1.2 --save
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+2. Setting up the CometChat UI KIT 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```javascript
+    git clone https://github.com/cometchat-pro/javascript-react-chat-ui-kit.git
+```
+    1. Copy CometChat folder to your source folder. 
+    2. Copy the dependencies from the UI Kit's package.json to your project's package.json file. 
+    3. To install the dependencies mentioned in above step, run
+        ```javascript
+            npm install
+        ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Getting started
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Specify the App ID
+By navigating to our src/constants folder replace `APP_ID`, `APP_REGION`, `AUTH_KEY` with your CometChat `APP ID`, `REGION` and `Auth Key` in constants.js
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Initialize CometChat
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```javascript
+    import { CometChat } from "@cometchat-pro/"
+```
 
-### Code Splitting
+The `init()` method initializes the settings required for CometChat.
+We suggest calling the `init()` method on app startup, preferably in the `onCreate()` method of the Application class.
+```javascript
+    import * as CONSTANTS from "./constants/constants";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    const appSetting = new CometChat.AppSettingsBuilder().subscribePresenceForAllUsers().setRegion(CONSTANTS.APP_REGION).build();
+    CometChat.init(CONSTANTS.APP_ID, appSetting).then(() => {
+        console.log("Initialization completed successfully");
+        // You can now call login function.
+    },
+    error => {
+        console.log("Initialization failed with error:", error);
+        // Check the reason for error and take appropriate action.
+    }
+    );
+```
 
-### Analyzing the Bundle Size
+### Create login component
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Once initialization is successful, you need to create Login component. 
+This login component can be found by navigating to our src/components folder. 
 
-### Making a Progressive Web App
+It allows us to log into CometChat using the default users provided (superhero1, superhero2, superhero3) or by registering a new user through which an input field is provided. Upon submission of the input or click of one of the default users we trigger the login().
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+If the user is already registered, we trigger the CometChat.login() which authenticates our user.
+Then, we redirect the user to the Message component.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Create message component
+This message component can be found by navigating to our src/components folder. 
 
-### Deployment
+On mount of this component, we get our logged in user. 
+We then import the CometChatGroupListScreen component from the CometChat UI Kit we cloned earlier.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+This component will list all groups and also handle all the logic of sending and receiving messages with typing indicators from group members.
 
-### `npm run build` fails to minify
+When you start typing in a message, the other user will be able to see the text `typing...` in his chat window below your name. The image below will describe the process.
+![alt text](./screenshots/typing.gif "Typing")
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Testing Our Application
+To test our application, run the following command
+```javascript
+    npm start
+```
+Open http://localhost:3000 to view it in the browser.
+
+## Reference
+Please refer our [Documentation](https://prodocs.cometchat.com/docs/react-ui-kit) for more information about how to integrate UI Kit to your applications.
