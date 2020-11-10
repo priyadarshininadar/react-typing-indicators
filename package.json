@@ -19,7 +19,7 @@
     "@emotion/core": "^10.0.35"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=9000 node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
