@@ -35,6 +35,7 @@ This section shows you the pre-requisites you need for integrating CometChat for
 ```
 
 2. Setting up the CometChat UI KIT 
+
     1. Clone the repository
         ```javascript
         git clone https://github.com/cometchat-pro/javascript-react-chat-ui-kit.git
@@ -71,8 +72,7 @@ We suggest calling the `init()` method on app startup, preferably in the `onCrea
     error => {
         console.log("Initialization failed with error:", error);
         // Check the reason for error and take appropriate action.
-    }
-    );
+    });
 ```
 
 ### Create login component
