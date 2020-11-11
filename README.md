@@ -92,6 +92,7 @@ On mount of this component, we get our logged in user.
 We then import the CometChatGroupListScreen component from the CometChat UI Kit we cloned earlier. This component will list all groups and also handle all the logic of sending and receiving messages with typing indicators from group members.
 
 When you start typing in a message, the other user will be able to see the text `typing...` in his chat window below your name. The image below will describe the process.
+
 ![alt text](./screenshots/typing.gif "Typing")
 
 ### Testing Our Application
@@ -102,4 +103,4 @@ To test our application, run the following command
 Open http://localhost:3000 to view it in the browser.
 
 ## Reference
-Please refer our [Documentation](https://prodocs.cometchat.com/docs/react-ui-kit) for more information about how to integrate UI Kit to your applications.
+Please refer our [documentation](https://prodocs.cometchat.com/docs/react-ui-kit) for more information about how to integrate UI Kit to your applications.
