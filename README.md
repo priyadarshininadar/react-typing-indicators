@@ -4,11 +4,12 @@
 ## Introduction
 
 In this tutorial, you will find the steps you need to add chat functionality alongwith typing indicators using our React UI Kit to your React project.
+
 React Chat UI Kit is a collection of custom UI Components and UI Screens designed to build chat application with fully customizable UI. It is designed to avoid boilerplate code for building UI. 
 
 ## Before getting started
 
-This section shows you the prerequisites you need for integrating CometChat for your react app.
+This section shows you the pre-requisites you need for integrating CometChat for your react app.
 
 ### Requirements
  1. [CometChat Account](#cometchat-account)
@@ -16,7 +17,7 @@ This section shows you the prerequisites you need for integrating CometChat for 
     ### CometChat Account
     To use this library, you need application keys from your CometChat account. If you don't have an account, you can create one <a href="https://app.cometchat.com/" target="_blank">here</a>.
 
-    1. Sign in to your <a href="https://app.cometchat.io/" target="_blank">CometChat Dashboard</a>
+    1. Sign in to your <a href="https://app.cometchat.com/" target="_blank">CometChat Dashboard</a>
     2. Click **Add New App**
     3. Give your app a name, and select a region and click  Add App
     4. Click your new app to open its settings.
@@ -30,7 +31,7 @@ This section shows you the prerequisites you need for integrating CometChat for 
 1. Install CometChat SDK
 
 ```javascript
-    npm install @cometchat-pro/chat@2.1.2 --save
+    npm install @cometchat-pro/chat@2.1.4 --save
 ```
 
 2. Setting up the CometChat UI KIT 
