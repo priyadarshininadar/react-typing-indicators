@@ -78,21 +78,18 @@ We suggest calling the `init()` method on app startup, preferably in the `onCrea
 ### Create login component
 
 Once initialization is successful, you need to create Login component. 
-This login component can be found by navigating to our src/components folder. 
+This login component can be found by navigating to the src/components folder. 
 
-It allows us to log into CometChat using the default users provided (superhero1, superhero2, superhero3) or by registering a new user through which an input field is provided. Upon submission of the input or click of one of the default users we trigger the login().
-
+It allows us to log into CometChat using the default users provided (superhero1, superhero2, superhero3) or by registering a new user through an input field which is provided. Upon submission of the input or click of one of the default users we trigger the login().
 If the user is already registered, we trigger the CometChat.login() which authenticates our user.
 Then, we redirect the user to the Message component.
 
 
 ### Create message component
-This message component can be found by navigating to our src/components folder. 
+This message component can be found by navigating to the src/components folder. 
 
 On mount of this component, we get our logged in user. 
-We then import the CometChatGroupListScreen component from the CometChat UI Kit we cloned earlier.
-
-This component will list all groups and also handle all the logic of sending and receiving messages with typing indicators from group members.
+We then import the CometChatGroupListScreen component from the CometChat UI Kit we cloned earlier. This component will list all groups and also handle all the logic of sending and receiving messages with typing indicators from group members.
 
 When you start typing in a message, the other user will be able to see the text `typing...` in his chat window below your name. The image below will describe the process.
 ![alt text](./screenshots/typing.gif "Typing")
