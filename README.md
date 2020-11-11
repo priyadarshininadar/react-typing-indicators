@@ -100,7 +100,7 @@ To test our application, run the following command
 ```javascript
     npm start
 ```
-Open http://localhost:3000 to view it in the browser.
+Open http://localhost:9000 to view it in the browser.
 
 ## Reference
 Please refer our [documentation](https://prodocs.cometchat.com/docs/react-ui-kit) for more information about how to integrate UI Kit to your applications.
