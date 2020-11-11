@@ -3,9 +3,8 @@
 
 ## Introduction
 
+In this tutorial, you will find the steps you need to add chat functionality alongwith typing indicators using our React UI Kit to your React project.
 React Chat UI Kit is a collection of custom UI Components and UI Screens designed to build chat application with fully customizable UI. It is designed to avoid boilerplate code for building UI. 
-In this tutorial, you will find the steps you need to take before adding chat with typing indicators functionality to your react project.
-
 
 ## Before getting started
 
@@ -41,7 +40,7 @@ This section shows you the prerequisites you need for integrating CometChat for 
         ```
     2. Copy CometChat folder to your source folder. 
     3. Copy the dependencies from the UI Kit's package.json to your project's package.json file. 
-    4. To install the dependencies mentioned in above step, run
+    4. To install the dependencies, run
         ```javascript
             npm install
         ```
