@@ -35,13 +35,13 @@ This section shows you the prerequisites you need for integrating CometChat for 
 ```
 
 2. Setting up the CometChat UI KIT 
-
-```javascript
-    git clone https://github.com/cometchat-pro/javascript-react-chat-ui-kit.git
-```
-    1. Copy CometChat folder to your source folder. 
-    2. Copy the dependencies from the UI Kit's package.json to your project's package.json file. 
-    3. To install the dependencies mentioned in above step, run
+    1. Clone the repository
+        ```javascript
+        git clone https://github.com/cometchat-pro/javascript-react-chat-ui-kit.git
+        ```
+    2. Copy CometChat folder to your source folder. 
+    3. Copy the dependencies from the UI Kit's package.json to your project's package.json file. 
+    4. To install the dependencies mentioned in above step, run
         ```javascript
             npm install
         ```
